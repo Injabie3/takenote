@@ -1,2 +1,1 @@
-# takenote
-Fun with friends
+# notetaker
