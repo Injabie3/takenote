@@ -14,7 +14,7 @@ include('remember.php');
 ?>
 
     <?php
-  $bg = array('bg-01.jpg', 'bg-02.jpg', 'bg-03.jpg', 'bg-04.jpg', 'bg-05.jpg', 'bg-06.jpg', 'bg-07.jpg' ); // array of filenames
+  $bg = array('images/bg-01.jpg', 'images/bg-02.jpg', 'images/bg-03.jpg', 'images/bg-04.jpg', 'images/bg-05.jpg', 'images/bg-06.jpg', 'images/bg-07.jpg' ); // array of filenames
 
   $i = rand(0, count($bg)-1); // generate random number size of the array
   $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
@@ -441,10 +441,10 @@ $('#rememberMeButton').click(function(){
                 <div class="card">
                     <div class="front">
                         <div class="cover">
-                            <img src="andrewBackground.jpg"/>
+                            <img src="/images/andrewBackground.jpg"/>
                         </div>
                         <div class="user">
-                            <img class="img-circle" src="andrew.jpg"/>
+                            <img class="img-circle" src="/images/andrew.jpg"/>
                         </div>
                         <div class="content">
                             <div class="main">
@@ -491,9 +491,9 @@ $('#rememberMeButton').click(function(){
                         </div>
                         <div class="footer">
                             <div class="social-links text-center">
-                                <a href="#" class="facebook"><i class="fa fa-facebook fa-fw"></i><img src="facebook.png" width="20" height="20"></a>
-                                <a href="#" class="twitter"><i class="fa fa-twitter fa-fw"></i><img src="google.png" width="15" height="15"></a>
-                                <a href="#" class="google"><i class="fa fa-google-plus fa-fw"></i><img src="github.png" width="15" height="15"></a>
+                                <a href="#" class="facebook"><i class="fa fa-facebook fa-fw"></i><img src="images/facebook.png" width="20" height="20"></a>
+                                <a href="#" class="twitter"><i class="fa fa-twitter fa-fw"></i><img src="images/google.png" width="15" height="15"></a>
+                                <a href="#" class="google"><i class="fa fa-google-plus fa-fw"></i><img src="images/github.png" width="15" height="15"></a>
                             </div>
                         </div>
                     </div> <!-- end back panel -->
@@ -505,10 +505,10 @@ $('#rememberMeButton').click(function(){
                 <div class="card">
                     <div class="front">
                         <div class="cover">
-                            <img src="luiBackground.jpg"/>
+                            <img src="images/luiBackground.jpg"/>
                         </div>
                         <div class="user"> 
-                            <img class="img-circle" src="lui.jpg"/>
+                            <img class="img-circle" src="images/lui.jpg"/>
                         </div>
                         <div class="content">
                             <div class="main">
@@ -555,9 +555,9 @@ $('#rememberMeButton').click(function(){
                         </div>
                         <div class="footer">
                             <div class="social-links text-center">
-                                <a href="#" class="facebook"><i class="fa fa-facebook fa-fw"></i><img src="facebook.png" width="20" height="20"></a>
-                                <a href="#" class="google"><i class="fa fa-google-plus fa-fw"></i><img src="linkedin.png" width="15" height="15"></a>
-                                <a href="#" class="twitter"><i class="fa fa-twitter fa-fw"></i><img src="sfu.jpg" width="15" height="15"></a>
+                                <a href="#" class="facebook"><i class="fa fa-facebook fa-fw"></i><img src="images/facebook.png" width="20" height="20"></a>
+                                <a href="#" class="google"><i class="fa fa-google-plus fa-fw"></i><img src="images/linkedin.png" width="15" height="15"></a>
+                                <a href="#" class="twitter"><i class="fa fa-twitter fa-fw"></i><img src="images/sfu.jpg" width="15" height="15"></a>
                             </div>
                         </div>
                     </div> <!-- end back panel -->
@@ -570,10 +570,10 @@ $('#rememberMeButton').click(function(){
                 <div class="card">
                     <div class="front">
                         <div class="cover">
-                            <img src="rayBackground.jpg"/>
+                            <img src="images/rayBackground.jpg"/>
                         </div>
                         <div class="user">
-                            <img class="img-circle" src="ray.jpg"/>
+                            <img class="img-circle" src="images/ray.jpg"/>
                         </div>
                         <div class="content">
                             <div class="main">
@@ -623,9 +623,9 @@ $('#rememberMeButton').click(function(){
                         </div>
                         <div class="footer">
                             <div class="social-links text-center">
-                                <a href="#" class="facebook"><i class="fa fa-facebook fa-fw"></i><img src="facebook.png" width="20" height="20"></a>
-                                <a href="#" class="google"><i class="fa fa-google-plus fa-fw"></i><img src="google.png" width="15" height="15"></a>
-                                <a href="#" class="twitter"><i class="fa fa-twitter fa-fw"></i><img src="sfu.jpg" width="15" height="15"></a>
+                                <a href="#" class="facebook"><i class="fa fa-facebook fa-fw"></i><img src="images/facebook.png" width="20" height="20"></a>
+                                <a href="#" class="google"><i class="fa fa-google-plus fa-fw"></i><img src="images/google.png" width="15" height="15"></a>
+                                <a href="#" class="twitter"><i class="fa fa-twitter fa-fw"></i><img src="images/sfu.jpg" width="15" height="15"></a>
                             </div>
                         </div>
                     </div> <!-- end back panel -->

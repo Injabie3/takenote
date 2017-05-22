@@ -4,7 +4,7 @@
 ?>
 
     <?php
-  $bg = array('pikachu.jpg'); // array of filenames
+  $bg = array('images/pikachu.jpg'); // array of filenames
 
   $i = rand(0, count($bg)-1); // generate random number size of the array
   $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
@@ -24,7 +24,7 @@
             <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
                 <style type="text/css">
                     body {
-                        background: url('pikachu.jpg') no-repeat center center fixed;
+                        background: url('images/pikachu.jpg') no-repeat center center fixed;
                         background-size: cover;
                     }
                     
@@ -115,7 +115,7 @@
     <!-- left column -->
     <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="text-center">
-        <img src="default.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        <img src="images/default.png" class="avatar img-circle img-thumbnail" alt="avatar">
         <h6>Upload a different photo...</h6>
         <input type="file" class="text-center center-block well well-sm">
       </div>
