@@ -1,4 +1,14 @@
 <?php
+session_start();
+include('connection.php');
+
+//logout
+include('logout.php');
+//remember me
+include('remember.php');
+?>
+
+<?php
     #Site definitions
     require_once("includes/site-definitions.php");
 ?>
@@ -58,6 +68,42 @@ $("#signupform").submit(function(event){
     });
 });
 
+//Contact us Ajax call
+// Ajax Call for Contact Us Form
+$("#contactusform").submit(function(event){
+    
+    //prevent default php processing
+    event.preventDefault();
+    $('#contact').modal('toggle');
+    //collect user inputs
+    var datatopost = $(this).serializeArray();
+    //send them to login.php using AJAX
+    console.log(datatopost);
+    $.ajax({
+        url: "contactus.php",
+        type: "POST",
+        data: datatopost,
+        success: function(data){
+            if(data === "success") {
+             $("#snackbar").html("<div class='alert alert-success'>Your message has been successfully sent to our team!</div>");
+            toast();
+            } else {
+                $("#snackbar").html("<div class='alert alert-danger'>"+data+"</div>");
+            toast();
+            }
+        
+        },
+        error: function(data){
+            
+            $("#snackbar").html("There was an error with the Ajax Call. Please try again later.");
+            toast();
+
+        }
+
+    });
+
+});
+
 //Ajax Call for the login form
 //Once the form is submitted
 $("#signinform").submit(function(event){
@@ -90,6 +136,31 @@ $("#signinform").submit(function(event){
     });
 
 });
+//forgot passform ajax call
+$("#forgotpasswordform").submit(function(event){ 
+    //prevent default php processing
+    event.preventDefault();
+    //collect user inputs
+    var datatopost = $(this).serializeArray();
+//    console.log(datatopost);
+    //send them to signup.php using AJAX
+    $.ajax({
+        url: "forgot-password.php",
+        type: "POST",
+        data: datatopost,
+        success: function(data){
+            $("#snackbar").html(data);
+                toast();
+        },
+        error: function(){
+            $("#snackbar").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
+            
+        }
+    
+    });
+
+});
+                
 
 function toast() {
     // Get the snackbar DIV
@@ -102,7 +173,7 @@ function toast() {
     // After 3 seconds, remove the show class from DIV
     setTimeout(function () {
         x.className = x.className.replace("show", "");
-    }, 3000);
+    }, 4000);
 }
 
 
@@ -226,6 +297,7 @@ $('#rememberMeButton').click(function(){
 
             <!--Forgot Password Modal-->
             <div id="pwdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                <form method="post" id="forgotpasswordform">
   <div class="modal-dialog">
   <div class="modal-content">
       <div class="modal-header">
@@ -242,7 +314,7 @@ $('#rememberMeButton').click(function(){
                             <div class="panel-body">
                                 <fieldset>
                                     <div class="form-group">
-                                        <input class="form-control input-lg" placeholder="E-mail Address" name="email" type="email">
+                                        <input class="form-control input-lg" placeholder="E-mail Address" name="forgotemail" type="email">
                                     </div>
                                     <input class="btn btn-lg btn-primary btn-block" value="Send My Password" type="submit">
                                 </fieldset>
@@ -259,6 +331,7 @@ $('#rememberMeButton').click(function(){
       </div>
   </div>
   </div>
+                    </form>
 </div>
 
 
@@ -567,21 +640,21 @@ $('#rememberMeButton').click(function(){
 <!--CONTACT US-->
 <div class="container">
 	<div class="row">
-        <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
+         <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         <h4 class="panel-title" id="contactLabel"><span class="glyphicon glyphicon-info-sign"></span> Any questions? Feel free to contact us.</h4>
                     </div>
-                    <form action="#" method="post" accept-charset="utf-8">
+                    <form method="post" id="contactusform">
                     <div class="modal-body" style="padding: 5px;">
                           <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                                    <input class="form-control" name="firstname" placeholder="Firstname" type="text" required autofocus />
+                                    <input class="form-control" name="firstname" placeholder="First name" type="text" required autofocus />
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
-                                    <input class="form-control" name="lastname" placeholder="Lastname" type="text" required />
+                                    <input class="form-control" name="lastname" placeholder="Last name" type="text" required />
                                 </div>
                             </div>
                             <div class="row">
@@ -607,13 +680,11 @@ $('#rememberMeButton').click(function(){
                                 <!--<span class="glyphicon glyphicon-remove"></span>-->
                             <button style="float: right;" type="button" class="btn btn-default btn-close" data-dismiss="modal">Close</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-
-    
-</div>
             
 
 <!--FOOTER-->

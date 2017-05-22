@@ -1,4 +1,11 @@
 <?php
+session_start();
+if(!isset($_SESSION['user_id'])) {
+    header("location: index.php");
+}
+?>
+
+<?php
     #Site definitions
     require_once("includes/site-definitions.php");
 ?>
@@ -92,7 +99,7 @@
                             <ul class="nav navbar-nav">
                     
                                 <li><a href="#">Logged in as <b>User</b></a></li>
-                            <li><a href="#">Log Out</a></li>
+                            <li><a href="index.php?logout=1">Log Out</a></li>
                         </ul>
                         </form>
                     </div>
